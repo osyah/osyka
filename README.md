@@ -62,16 +62,32 @@ And a couple of advanced ones:
 
 - the string yielded by `osyka_scheme_gen` may be generated programmatically:
 	```ts
-		import {OsykaSchemeRoot} from 'osyka'
-		const css = OsykaSchemeRoot( {variant, sourceColor} )
+	import {OsykaSchemeRoot} from 'osyka'
+	const css = OsykaSchemeRoot( {variant, sourceColor} )
 	```
 - to generate a scheme at runtime or apply a scheme to a specific element other than `<html>`, use an API:
 	```ts
-		import {OsykaSchemeColors} from 'osyka'
-		const style = OsykaSchemeColors(
-			{variant, sourceColor},
-			light, // boolean
-			contrast, // -1 | 0 | 1
-		)
-		someElement.setAttribute('style', style)
+	import {OsykaSchemeColors} from 'osyka'
+	const style = OsykaSchemeColors(
+		{variant, sourceColor},
+		light, // boolean
+		contrast, // -1 | 0 | 1
+	)
+	someElement.setAttribute('style', style)
 	```
+
+## Scheme: Variant
+
+A variant is responsible for turning a source color to a set of tonal palettes with its color magic. To use a variant when generating a scheme programmatically, import one of the classes listed below from `@material/material-color-utilities`. 
+
+Tip: the variant most developers will want is `SchemeTonalSpot`.
+
+- `SchemeContent`: uses the source color as background, has similiar appearance in light and dark mode, tertiary palette is analogous to the primary one
+- `SchemeExpressive`: a scheme that is intentionally detached from the source color
+- `SchemeFidelity`: uses the source color as background, similiar appearance in light and dark mode, tertiary palette is complementary to the primary one
+- `SchemeFruitSalad`: a playful theme — the source color's hue does not appear in the theme
+- `SchemeMonochrome`: a grayscale scheme
+- `SchemeNeutral`: a nearly grayscale scheme
+- `SchemeRainbow`: a playful theme — the source color's hue does not appear in the theme
+- **`SchemeTonalSpot`**: has low to medium colorfullness, the tertiary palette is related to the source color
+- `SchemeVibrant`: maxes out colorfullness of the primary tonal palette
