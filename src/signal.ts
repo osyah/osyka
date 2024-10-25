@@ -1,3 +1,6 @@
+// Copyright (c) 2024 Osyah
+// SPDX-License-Identifier: MIT
+
 import {makePersisted, PersistenceOptions} from '@solid-primitives/storage'
 import {createSignal} from 'solid-js'
 

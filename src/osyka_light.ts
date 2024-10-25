@@ -1,4 +1,7 @@
-import {createMediaQuery, usePrefersDark} from '@solid-primitives/media'
+// Copyright (c) 2024 Osyah
+// SPDX-License-Identifier: MIT
+
+import {createMediaQuery} from '@solid-primitives/media'
 import {SignalPersist} from './signal.js'
 
 export const OsykaLightPref = createMediaQuery('(prefers-color-scheme: light)')

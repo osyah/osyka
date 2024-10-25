@@ -1,3 +1,6 @@
+// Copyright (c) 2024 Osyah
+// SPDX-License-Identifier: MIT
+
 import {Hct, hexFromArgb, SchemeContent, SchemeExpressive, SchemeFidelity, SchemeFruitSalad, SchemeMonochrome, SchemeNeutral, SchemeRainbow, SchemeTonalSpot, SchemeVibrant} from '@material/material-color-utilities'
 import {OsykaLight as OsykaLight} from './osyka_light.js'
 import {OsykaContrast} from './osyka_contrast.js'

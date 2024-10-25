@@ -1,3 +1,6 @@
+// Copyright (c) 2024 Osyah
+// SPDX-License-Identifier: MIT
+
 import './osyka_element.styl'
 import {Component, JSX, mergeProps, splitProps} from 'solid-js'
 import {DOMElements, spread} from 'solid-js/web'

@@ -1,3 +1,6 @@
+// Copyright (c) 2024 Osyah
+// SPDX-License-Identifier: MIT
+
 import './osyka_shell.styl'
 import {OsykaElement, OsykaElementConfig} from './osyka_element.jsx'
 

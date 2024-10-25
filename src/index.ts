@@ -1,3 +1,6 @@
+// Copyright (c) 2024 Osyah
+// SPDX-License-Identifier: MIT
+
 export * from './osyka_contrast.js'
 export * from './osyka_element.jsx'
 export * from './osyka_light.js'

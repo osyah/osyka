@@ -1,5 +1,8 @@
 #!/usr/bin/env node 
 
+// Copyright (c) 2024 Osyah
+// SPDX-License-Identifier: MIT
+
 import {Hct, SchemeTonalSpot, argbFromHex} from '@material/material-color-utilities'
 import {OsykaSchemeRoot, OsykaSchemeVariant} from './osyka_scheme.js'
 import {SchemeContent, SchemeExpressive, SchemeFidelity, SchemeFruitSalad, SchemeMonochrome, SchemeNeutral, SchemeRainbow, SchemeVibrant} from '@material/material-color-utilities'

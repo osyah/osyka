@@ -1,3 +1,6 @@
+// Copyright (c) 2024 Osyah
+// SPDX-License-Identifier: MIT
+
 import {createMediaQuery} from '@solid-primitives/media'
 
 export type OsykaContrast = -1 | 0 | 1

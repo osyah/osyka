@@ -1,3 +1,6 @@
+// Copyright (c) 2024 Osyah
+// SPDX-License-Identifier: MIT
+
 import {createResource, InitializedResourceOptions, Resource, ResourceActions, ResourceFetcher, ResourceOptions, ResourceSource} from 'solid-js'
 
 export function Resource<T, R = unknown>(
