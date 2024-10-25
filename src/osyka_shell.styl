@@ -1,0 +1,21 @@
+@import './osyka_scheme_apply.styl'
+
+.OsykaShell
+	width 100%
+	height 100%
+	OsykaApplyColors(surfaceContainer, onSurface)
+.OsykaShell_header
+	top 0
+	position sticky
+.OsykaShell_mainOuter
+	position relative
+	max-width 60rem
+	margin 0 auto
+	display flex
+	flex-direction column
+.OsykaShell_aside
+	@media (min-width 90rem)
+		position absolute
+		left -15rem
+.OsykaShell_main
+	OsykaApplyColors(surface, onSurface)

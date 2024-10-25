@@ -1,0 +1,135 @@
+OsykaFontDict = {
+	bodyLarge: {
+		font: var(--OsykaFontPlain),
+		lineHeight: 1.5rem,
+		size: 1rem,
+		tracking: 0.03125rem,
+		weight: 400,
+	},
+	bodyMedium: {
+		font: var(--OsykaFontPlain),
+		lineHeight: 1.25rem,
+		size: 0.875rem,
+		tracking: 0.015625rem,
+		weight: 400,
+	},
+	bodySmall: {
+		font: var(--OsykaFontPlain),
+		lineHeight: 1rem,
+		size: 0.75rem,
+		tracking: 0.025rem,
+		weight: 400,
+	},
+	displayLarge: {
+		font: var(--OsykaFontBrand),
+		lineHeight: 4rem,
+		size: 3.5625rem,
+		tracking: -0.015625rem,
+		weight: 400,
+	},
+	displayMedium: {
+		font: var(--OsykaFontBrand),
+		lineHeight: 3.25rem,
+		size: 2.8125rem,
+		tracking: 0rem,
+		weight: 400,
+	},
+	displaySmall: {
+		font: var(--OsykaFontBrand),
+		lineHeight: 2.75rem,
+		size: 2.25rem,
+		tracking: 0rem,
+		weight: 400,
+	},
+	headlineLarge: {
+		font: var(--OsykaFontBrand),
+		lineHeight: 2.5rem,
+		size: 2rem,
+		tracking: 0rem,
+		weight: 400,
+	},
+	headlineMedium: {
+		font: var(--OsykaFontBrand),
+		lineHeight: 2.25rem,
+		size: 1.75rem,
+		tracking: 0rem,
+		weight: 400,
+	},
+	headlineSmall: {
+		font: var(--OsykaFontBrand),
+		lineHeight: 2rem,
+		size: 1.5rem,
+		tracking: 0rem,
+		weight: 400,
+	},
+	labelLarge: {
+		font: var(--OsykaFontPlain),
+		lineHeight: 1.25rem,
+		size: 0.875rem,
+		tracking: 0.00625rem,
+		weight: 500,
+	},
+	labelLargeProminent: {
+		font: var(--OsykaFontPlain),
+		lineHeight: 1.25rem,
+		size: 0.875rem,
+		tracking: 0.00625rem,
+		weight: 700,
+	},
+	labelMedium: {
+		font: var(--OsykaFontPlain),
+		lineHeight: 1rem,
+		size: 0.75rem,
+		tracking: 0.03125rem,
+		weight: 500,
+	},
+	labelMediumProminent: {
+		font: var(--OsykaFontPlain),
+		lineHeight: 1rem,
+		size: 0.75rem,
+		tracking: 0.03125rem,
+		weight: 700,
+	},
+	labelSmall: {
+		font: var(--OsykaFontPlain),
+		lineHeight: 1rem,
+		size: 0.6875rem,
+		tracking: 0.03125rem,
+		weight: 500,
+	},
+	titleLarge: {
+		font: var(--OsykaFontBrand),
+		lineHeight: 1.75rem,
+		size: 1.375rem,
+		tracking: 0rem,
+		weight: 400,
+	},
+	titleMedium: {
+		font: var(--OsykaFontPlain),
+		lineHeight: 1.5rem,
+		size: 1rem,
+		tracking: 0.009375rem,
+		weight: 500,
+	},
+	titleSmall: {
+		font: var(--OsykaFontPlain),
+		lineHeight: 1.25rem,
+		size: 0.875rem,
+		tracking: 0.00625rem,
+		weight: 500,
+	},
+}
+
+OsykaFontApply(type)
+	unless type in OsykaFontDict
+		error('expected ' + type + ' to be in OsykaFontDict')
+	config = OsykaFontDict[type]
+	font-family: config.font
+	line-height: config.lineHeight
+	font-size: config.size
+	letter-spacing: config.tracking
+	font-weight: config.weight
+
+:root
+	--OsykaFontPlain sans-serif
+	--OsykaFontBrand sans-serif

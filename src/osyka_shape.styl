@@ -1,0 +1,33 @@
+OsykaShapeDict = {
+	none: var(--OsykaShape_none),
+	xs: var(--OsykaShape_xs),
+	xsTop: var(--OsykaShape_xsTop),
+	sm: var(--OsykaShape_sm),
+	md: var(--OsykaShape_md),
+	lg: var(--OsykaShape_lg),
+	lgTop: var(--OsykaShape_lgTop),
+	lgStart: var(--OsykaShape_lgStart),
+	lgEnd: var(--OsykaShape_lgEnd),
+	xl: var(--OsykaShape_xl),
+	xlTop: var(--OsykaShape_xlTop),
+	full: var(--OsykaShape_full),
+}
+
+OsykaShapeApply(size)
+	unless size in OsykaShapeDict
+		error('expected ' + size + ' to be in OsykaShapeDict')
+	border-radius OsykaShapeDict[size]
+
+:root
+	--OsykaShape_none 0
+	--OsykaShape_xs 4px
+	--OsykaShape_xsTop 4px 4px 0 0
+	--OsykaShape_sm 8px
+	--OsykaShape_md 12px
+	--OsykaShape_lg 16px
+	--OsykaShape_lgTop 16px 16px 0 0 
+	--OsykaShape_lgStart 16px 0 0 0 
+	--OsykaShape_lgEnd 0 16px 0 0 
+	--OsykaShape_xl 28px
+	--OsykaShape_xlTop 28px 28px 0 0
+	--OsykaShape_full 50%
