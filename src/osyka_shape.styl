@@ -2,35 +2,26 @@
 // SPDX-License-Identifier: MIT
 
 OsykaShapeDict = {
-	none: var(--OsykaShape_none),
+	none: 0,
 	xs: var(--OsykaShape_xs),
-	xsTop: var(--OsykaShape_xsTop),
+	xsTop: var(--OsykaShape_xs) var(--OsykaShape_xs) 0 0,
 	sm: var(--OsykaShape_sm),
 	md: var(--OsykaShape_md),
 	lg: var(--OsykaShape_lg),
-	lgTop: var(--OsykaShape_lgTop),
-	lgStart: var(--OsykaShape_lgStart),
-	lgEnd: var(--OsykaShape_lgEnd),
+	lgTop: var(--OsykaShape_lg) var(--OsykaShape_lg) 0 0,
+	lgStart: var(--OsykaShape_lg) 0 0 0,
+	lgEnd: 0 var(--OsykaShape_lg) 0 0,
 	xl: var(--OsykaShape_xl),
-	xlTop: var(--OsykaShape_xlTop),
-	full: var(--OsykaShape_full),
+	xlTop: var(--OsykaShape_xl) var(--OsykaShape_xl) 0 0,
+	full: 50%,
 }
 
 OsykaShapeApply(size)
-	unless size in OsykaShapeDict
-		error('expected ' + size + ' to be in OsykaShapeDict')
 	border-radius OsykaShapeDict[size]
 
 :root
-	--OsykaShape_none 0
 	--OsykaShape_xs 4px
-	--OsykaShape_xsTop 4px 4px 0 0
 	--OsykaShape_sm 8px
 	--OsykaShape_md 12px
 	--OsykaShape_lg 16px
-	--OsykaShape_lgTop 16px 16px 0 0 
-	--OsykaShape_lgStart 16px 0 0 0 
-	--OsykaShape_lgEnd 0 16px 0 0 
 	--OsykaShape_xl 28px
-	--OsykaShape_xlTop 28px 28px 0 0
-	--OsykaShape_full 50%
