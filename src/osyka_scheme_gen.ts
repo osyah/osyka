@@ -6,8 +6,9 @@
 import fs, {existsSync} from 'node:fs'
 import path from 'node:path'
 import {Hct, SchemeTonalSpot, argbFromHex} from '@material/material-color-utilities'
-import {OsykaSchemeAdaptive, OsykaSchemeVariant} from './osyka_scheme.js'
+import {OsykaSchemeVariant} from './osyka_scheme.js'
 import {SchemeContent, SchemeExpressive, SchemeFidelity, SchemeFruitSalad, SchemeMonochrome, SchemeNeutral, SchemeRainbow, SchemeVibrant} from '@material/material-color-utilities'
+import {OsykaSchemeAdaptive} from './osyka_scheme_adaptive.js'
 
 const argv = process.argv.slice(2)
 if(argv.length !== 3) {

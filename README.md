@@ -138,6 +138,78 @@ Tip: the variant most developers will want is `SchemeTonalSpot`.
 - **`SchemeTonalSpot`**: has low to medium colorfullness; the tertiary palette is related to the source color
 - `SchemeVibrant`: maxes out colorfullness of the primary tonal palette
 
+## Element
+
+Osyka Element is a micro-framework for building customizable UI components as well as application pages. 
+
+It is designed around a simple idea contradicting a significant part of the front-end mainstream (Tailwind, Svelte/Vue/Astro, etc): **just like each component has a name, all of its elements should**. Osyka Element API displaces native SolidJS element creation syntax like `<div />` with its own that ensures element names.
+
+```ts
+const {div, h1} = OsykaElement
+
+function App() {
+	return <div.App>
+		<h1.App_title>My App</h1.App_title>
+	</div.App>
+}
+```
+
+- `OsykaElement` members like `div` are proxies, their "virtual members" are components that are (almost) identical in behaviour to Solid's element syntax
+- in an expression like `<div.App />`, `div` would be element's **tag** and `App` would be the name
+- element name is added to its classlist and semantically identifies it within the component
+- component's root element name should be equal to component's name
+- component's nested element names should follow the format: `ComponentName_elementName`
+
+Though element name is commonly used to set the element's class, strings from `class` prop will be added to the element's class list as well as `OsykaElement` class that provides some minimal styling:
+
+- `box-sizing: border-box`
+- removes margin and padding
+- resets text color, font, background and border
+
+### Element: Handle
+
+Element Handle is a feature that allows you to expose some your widget elements to consumers. It is implemented as `handle` prop of all Osyka Elements that you typically forward from a host component's prop typed as `OsykaElementHandle`. You to a value of these types:
+
+- a string to add a class to the element (just an alias to `handle={{class: handle}}`)
+- an object to override any element props including `children` and `ref`
+- `null` to unmount an element
+
+```tsx
+function App() {
+	return <Box handle={{
+		class: 'App',
+		children: <>
+			<h1.App_title>My App</h1>
+			<Box handle='App_anEmptyBox' />
+		</>,
+	}} />
+}
+
+function Box( props: {
+	handle?: OsykaElementHandle
+} ) {
+	return <div.Box handle={props.handle} />
+}
+```
+
+A few more things to consider:
+
+- changing handle's value (including changing specific property values of object-typed handles) recreates the element
+- props set through handles have priority over other props
+- setting classes through handles doesn't remove other classes set by Osyka Element
+
+Though powerful, handles should be used carefully since they may break some components or harm performance. To avoid recreating an element every time any prop you want to set with handle changes, you should wrap its value in a getter:
+
+```tsx
+<Box handle={{
+	get children() {
+		return count()
+	},
+}} />
+```
+
+This is what Solid compiler does as well to all non-static JSX attribute values to form the `props` object (and the reason it can't be destructured).
+
 ## Miscellaneous
 
 ### Dark mode preference

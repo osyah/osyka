@@ -17,7 +17,7 @@
 	},
 	"scripts": {
 		"build": "rm -rf dist && tsc --project tsconfig.build.json && pnpm baseline_gen && cp src/*.{styl,css} dist",
-		"baseline_gen": "pnpm osyka_scheme_gen tonal_spot '#45b1e8' src/osyka_scheme_baseline",
+		"baseline_gen": "node ./dist/osyka_scheme_gen.js tonal_spot '#45b1e8' src/osyka_scheme_baseline",
 		"prepublish": "npm version prerelease && pnpm build"
 	},
 	"dependencies": {

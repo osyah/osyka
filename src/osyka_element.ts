@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 
 import './osyka_element.styl'
-import {Component, JSX, mergeProps, splitProps} from 'solid-js'
+import {Component, createMemo, JSX, mergeProps, splitProps} from 'solid-js'
 import {DOMElements, spread} from 'solid-js/web'
 import clsx from 'clsx'
 
@@ -10,24 +10,30 @@ export const OsykaElement = [ ...DOMElements.values() ].reduce(
     (dict, tag) => {
         dict[tag] = new Proxy( {} as any, { get(cache, name: string) {
             return cache[name] ??= (props: Record<string, any>) => {
-                const [ {config}, rest ] = splitProps(props, ['config'])
-                const element = document.createElement(tag)
-                spread(
-                    element,
-                    mergeProps(
-                        rest,
-                        typeof config === 'object' ? config : {},
-                        { get class() {
-                            return clsx('OsykaElement', name, props.class, typeof config === 'object' ? config.class : typeof config === 'string' && config)
-                        } },
-                    ),
-                )
-                return element
+                const [system, rest] = splitProps(props, ['handle'])
+                return createMemo( () => {
+                    const {handle} = system
+                    if(handle === null) return null
+                    const element = document.createElement(tag)
+                    spread(
+                        element,
+                        mergeProps(
+                            rest,
+                            typeof handle === 'object' ? handle : {},
+                            {
+                                get class() {
+                                    return clsx('OsykaElement', name, props.class, typeof handle === 'object' ? handle.class : typeof handle === 'string' && handle)
+                                }
+                            }
+                        ),
+                    )
+                    return element
+                } )
             } 
         } } )
         return dict
     },
     {} as any,
-) as { [k in keyof JSX.IntrinsicElements]: Record<string, Component< Omit< JSX.IntrinsicElements[k], 'config'> & {config?: OsykaElementConfig} > > }
+) as { [k in keyof JSX.IntrinsicElements]: Record< string, Component< Omit< JSX.IntrinsicElements[k], 'handle'> & {handle?: OsykaElementHandle} > > }
 
-export type OsykaElementConfig<k extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements> = string | JSX.IntrinsicElements[k]
+export type OsykaElementHandle<k extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements> = string | JSX.IntrinsicElements[k] | null

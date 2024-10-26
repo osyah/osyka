@@ -1,24 +1,35 @@
 // Copyright (c) 2024 Osyah
 // SPDX-License-Identifier: MIT
 
-@import './osyka_scheme_apply.styl'
+@import './osyka_scheme.styl'
+@import './osyka_shape.styl'
 
 .OsykaShell
 	width 100%
-	height 100%
-	OsykaApplyColors(surfaceContainer, onSurface)
+	height 100vh
+	OsykaSchemeApply(surfaceContainer, onSurface)
+	overflow: scroll
 .OsykaShell_header
 	top 0
 	position sticky
-.OsykaShell_mainOuter
+	padding 1rem
+.OsykaShell_hor
 	position relative
 	max-width 60rem
 	margin 0 auto
 	display flex
 	flex-direction column
-.OsykaShell_aside
-	@media (min-width 90rem)
+	padding 1rem
+.OsykaShell_main
+	OsykaSchemeApply(surface, onSurface)
+	OsykaShapeApply(lg)
+	padding 1rem
+@media (min-width 90rem)
+	.OsykaShell_main
+		OsykaShapeApply(xl)
+		padding 2rem
+	.OsykaShell_aside
 		position absolute
 		left -15rem
-.OsykaShell_main
-	OsykaApplyColors(surface, onSurface)
+	.OsykaShell_hor
+		padding 0
